@@ -5,9 +5,9 @@ const router  = express.Router();
 require('../db/conn');
 const Internship = require('../model/internshipDetailsSchema');
 
-router.get('/',(req,res)=>{
-    res.send(`Home Page from auth.js file`);
-})
+// router.get('/',(req,res)=>{
+//     res.send(`Home Page from auth.js file`);
+// })
 
 router.post('/internships/type', async (req,res)=>{
     const{internshipType,companyName,internshipLocation,startDate,duration,stipend,typeOfWork}= req.body;

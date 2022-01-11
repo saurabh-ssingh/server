@@ -1,7 +1,7 @@
 const dotenv = require('dotenv')
 const express = require('express');
 const app = express();
-
+const authenticate = require('./middleware/authenticate');
 dotenv.config({path:'./config.env'});
 require('./db/conn');
 
@@ -13,8 +13,8 @@ app.use(require('./routes/internshipDetailsAuth')); // linking of internship det
 const PORT = process.env.PORT;
 
 
-app.get('/', (req, res) => {
-    res.send('Hello World! frm app.js')
+app.get('/',authenticate, (req, res) => {
+    res.send('Hello World! from app.js')
   })
 
 app.get('/registration/student',(req,res)=>{

@@ -1,38 +1,12 @@
 const bcrypt = require('bcryptjs');
 const express = require('express');
 const router  = express.Router();
-const jwt = require('jsonwebtoken');
+
 const authenticate = require("../middleware/authenticate");
 
 require('../db/conn');
 
 const User = require('../model/studentSchema');
-
-router.get('/',(req,res)=>{
-    res.send(`Home Page from auth.js file`);
-})
-
-
-// router.post('/registration/student',(req,res)=>{
-//     const{email,password,firstName,lastName}=req.body;
-//     if(!email|| !password || !firstName || !lastName){
-//         return res.status(422).json({error :'Please fill all the field'});
-//     }
-
-//     User.findOne({ email : email })
-//         .then((userExist)=>{
-//             if(userExist){
-//                 return res.status(422).json({error :'Email already Exist'});
-//             }
-
-//             const user = new User({email,password,firstName,lastName});
-//             user.save().then(()=>{
-//                 res.status(201).json({message:"User Registerd Successfully"});
-//             }).catch((err)=>res.status(500).json({message:'Registration failed'}));
-//         })
-//         .catch((err)=>{console.log(err)});
-    
-// })
 
 
 router.post('/registration/student',async (req,res)=>{

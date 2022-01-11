@@ -6,9 +6,9 @@ const router  = express.Router();
 require('../db/conn');
 const Employer = require('../model/employerSchema');
 
-router.get('/',(req,res)=>{
-    res.send(`Home Page from auth.js emploer file`);
-})
+// router.get('/',(req,res)=>{
+//     res.send(`Home Page from auth.js emploer file`);
+// })
 
 router.post('/registration/employer',async (req,res)=>{
     const{email,password,cPassword,firstName,lastName,mobile}=req.body;
